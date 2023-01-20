@@ -1,6 +1,5 @@
-import FormCreateUser from "./components/FormCreateUser/FormCreateUser";
-import Card from "./components/UI/Card/Card";
-import UserList from "./components/UsersList/UsersList";
+import { useState } from "react";
+import Users from "./components/Users/Users";
 
 const INITIAL_USERS = [
   { name: "Joker", age: 24, id: "0.1653745419310675" },
@@ -8,14 +7,13 @@ const INITIAL_USERS = [
 ];
 
 const App = props => {
+  const [users, setUsers] = useState(INITIAL_USERS);
+
+  const addUserHandler = user => setUsers(prevUsers => [...prevUsers, user]);
+
   return (
     <div className="global-container">
-      <Card>
-        <FormCreateUser />
-      </Card>
-      <Card>
-        <UserList users={INITIAL_USERS} />
-      </Card>
+      <Users onAddUser={addUserHandler} users={users} />
     </div>
   );
 };
