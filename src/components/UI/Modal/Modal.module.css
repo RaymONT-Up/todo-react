@@ -1,0 +1,42 @@
+.wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modalWindow {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  min-width: 300px;
+  width: 100%;
+  max-width: 75%;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.content {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.button {
+  margin: 0 auto;
+  width: 50%;
+}
