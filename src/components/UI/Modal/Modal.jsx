@@ -1,7 +1,11 @@
+import React, { Fragment } from "react";
+import ReactDom from "react-dom";
+
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import style from "./Modal.module.css";
-const Modal = props => {
+
+const ModalWindow = props => {
   return (
     <div className={style.wrapper}>
       <div className={style.backdrop} onClick={props.onClick}></div>
@@ -13,6 +17,20 @@ const Modal = props => {
         </Button>
       </Card>
     </div>
+  );
+};
+const Modal = props => {
+  return (
+    <Fragment>
+      {ReactDom.createPortal(
+        <ModalWindow
+          onClick={props.onClick}
+          title={props.title}
+          content={props.content}
+        />,
+        document.getElementById("modal")
+      )}
+    </Fragment>
   );
 };
 export default Modal;

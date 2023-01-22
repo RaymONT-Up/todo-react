@@ -14,8 +14,7 @@ const FormCreateUser = props => {
 
   const createUserFormSubmitHadler = event => {
     event.preventDefault();
-
-    if (inputName.length === 0 && inputAge.length === 0) {
+    if (inputName.length === 0 || inputAge.length === 0) {
       setModalError({
         title: "Заполните поля",
         content: "Необходимо дабы в полях был минимум 1 символ",
@@ -50,7 +49,6 @@ const FormCreateUser = props => {
             <input
               className={style.input}
               type="name"
-              // required
               onChange={inputNameChangeHandler}
               value={inputName}
             />
@@ -60,7 +58,6 @@ const FormCreateUser = props => {
             <input
               className={style.input}
               type="number"
-              // required
               onChange={inputAgeChangeHandler}
               value={inputAge}
             />
